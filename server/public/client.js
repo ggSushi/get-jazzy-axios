@@ -1,5 +1,8 @@
 console.log('script sourced');
 
+//! app is used on the server side of the application,
+//! axios is on the client side.
+
 function getArtists() {
     // Axios GET request
     axios.get('/artist').then((response) => {

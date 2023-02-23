@@ -44,6 +44,8 @@ const songListArray = [
         artist: 'The Dave Brubeck Quartet',
     },
 ];
+//! app is used on the server side of the application,
+//! axios is on the client side.
 //! DON'T FORGET THIS
 app.use(express.json());
 
