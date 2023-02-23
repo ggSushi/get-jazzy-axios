@@ -14,14 +14,25 @@
         <input type="text" id="nameInput" placeholder="e.g Penguin Stefani"/>
         <br>
         Birth Year
-        <input type="number" id="bornInput" placeholder="e.g 1985" />
+        <input type="text" id="bornInput" placeholder="e.g 1985" />
         <br>
         Death Year
-        <input type="text" id="deadInput" placeholder="e.g 1998 or Still Alive" />
+        <input type="text" id="deadInput" placeholder="e.g 1998 or N/A" />
         <br>
         <input type="submit" />
     </form>
 
+    <h2> Add Song Info</h2>
+    <form id="songForm" onSubmit="submitSongInfo(event)" > 
+        Song Title
+        <input type="text" id="songInput" placeholder="e.g sun and moon" />
+        <br>
+        Artist Name
+        <input type="text" id="artistInput" placeholder="e.g anees" />
+        <br>
+        <input type="submit" />
+
+    </form>
     <h2>Famous Jazz Artists</h2>
     <table>
         <thead>

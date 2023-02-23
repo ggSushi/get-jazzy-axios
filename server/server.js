@@ -44,6 +44,7 @@ const songListArray = [
         artist: 'The Dave Brubeck Quartet',
     },
 ];
+//! DON'T FORGET THIS
 app.use(express.json());
 
 app.use(express.static('server/public'));
@@ -65,6 +66,14 @@ app.post('/artist', (req, res) => {
 
 app.get('/song', (req, res) => {
     res.send(songListArray);
+})
+
+app.post('/song', (req, res) => {
+    console.log('POST Request for /song');
+    console.log(req.body);
+    let songInfo = req.body;
+    songListArray.push(songInfo);
+    res.sendStatus(201);
 })
 
 app.listen(PORT, () => {

@@ -62,20 +62,43 @@ function submitArtist(event) {
 
 
 // TODO Add ajax request for /songs and display on DOM
+function submitSongInfo(event) {
+    event.preventDefault();
+    console.log('In submitSongInfo');
+    let song = document.querySelector('#songInput').value;
+    let artist = document.querySelector('#artistInput').value;
+    console.log('Inputs: ', song, artist);
+    let songForServer = {
+        title: song,
+        artist: artist
+    };
 
-// function getSongs() {
-//     axios.get('/song').then((response) => {
-//         console.log(response);
-//         // Creating a variable to contain the data of response
-//         let serverSongs = response.data;
-//         let contentDiv = document.querySelector('#songTableBody');
-//         for (let song of serverSongs) {
-//             contentDiv.innerHTML += `
-//                 <tr>
-//                     <td></td>
-//                     <td></td>
-//                 </tr>
-//             `;
-//         }
-//     })
-// }
+    axios.post('/song', songForServer).then( (response) => {
+        console.log(response);
+        getSongs();
+    }).catch( (error) => {
+        console.log(error);
+        alert('Whoops! Big oops somewhere!');
+    });
+}
+
+
+function getSongs() {
+    axios.get('/song').then((response) => {
+        console.log(response);
+        // Creating a variable to contain the data of response
+        let serverSongs = response.data;
+        let contentDiv = document.querySelector('#songTableBody');
+        contentDiv.innerHTML ='';
+        for (let song of serverSongs) {
+            contentDiv.innerHTML += `
+                <tr>
+                    <td>"${song.title}"</td>
+                    <td>${song.artist}</td>
+                </tr>
+            `;
+        };
+    })
+}
+
+getSongs();
