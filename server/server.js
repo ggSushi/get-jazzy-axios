@@ -44,12 +44,22 @@ const songListArray = [
         artist: 'The Dave Brubeck Quartet',
     },
 ];
+app.use(express.json());
 
 app.use(express.static('server/public'));
 
 app.get('/artist', (req, res) => {
     res.send(artistListArray);
 });
+
+app.post('/artist', (req, res) => {
+    console.log('POST Request for /artist');
+    //axios.post info is available as a property of req.body
+    console.log(req.body);
+    let artistInfo = req.body;
+    artistListArray.push(artistInfo);
+    res.sendStatus(201);
+})
 
 // TODO - Add GET for songs
 

@@ -8,6 +8,19 @@
 </head>
 <body>
     <h1>Get Jazzy Axios</h1>
+    <h2>Add Artist Info</h2>
+    <form id="artistForm" onSubmit="submitArtist(event)">
+        Artist Name
+        <input type="text" id="nameInput" placeholder="e.g Penguin Stefani"/>
+        <br>
+        Birth Year
+        <input type="number" id="bornInput" placeholder="e.g 1985" />
+        <br>
+        Death Year
+        <input type="text" id="deadInput" placeholder="e.g 1998 or Still Alive" />
+        <br>
+        <input type="submit" />
+    </form>
 
     <h2>Famous Jazz Artists</h2>
     <table>
@@ -18,7 +31,9 @@
                 <th>Died</th>
             </tr>
         </thead>
-        <tbody id="artistTableBody"></tbody>
+        <tbody id="artistTableBody">
+
+        </tbody>
     </table>
 
     <h2>Famous Jazz Songs</h2>
@@ -29,7 +44,9 @@
                 <th>Artist</th>
             </tr>
         </thead>
-        <tbody id="songTableBody"></tbody>
+        <tbody id="songTableBody">
+
+        </tbody>
     </table>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="client.js"></script>
